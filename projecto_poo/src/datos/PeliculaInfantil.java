@@ -4,9 +4,7 @@
 package datos;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * @author Erik J
@@ -16,41 +14,18 @@ import java.util.Date;
 public class PeliculaInfantil extends Pelicula
 {
     //ATRIBUTOS
+        //de instancia
     private String  _tipoAnimacion;//nombre provicional. 2D o 3D o R
     private int     _edadRecomendada;
     
     //METODOS
-        //ACCESORES
-    public String getTipoAnimacion()
-    {
-        return _tipoAnimacion;
-    }
-
-    public void setTipoAnimacion( String tipoAnimacion )
-    {
-        _tipoAnimacion = tipoAnimacion;
-    }
-
-    public int getEdadRecomendada()
-    {
-        return _edadRecomendada;
-    }
-
-    public void setEdadRecomendada( int edadRecomendada )
-    {
-        //validación
-        if( edadRecomendada < 0 )
-            _edadRecomendada = 0;
-        else
-            _edadRecomendada = edadRecomendada;
-    }
-
-        //CONSTRUCTORES
+        //constructores
     /**
      * 
      */
     public PeliculaInfantil()
     {
+        super();
     }
 
     /**
@@ -97,32 +72,49 @@ public class PeliculaInfantil extends Pelicula
     {
         super( titulo, clasificacion, genero );
     }
-        //IMPLEMENTADOS
+    
+        //accesores
+    public String getTipoAnimacion()
+    {
+        return _tipoAnimacion;
+    }
+
+    public void setTipoAnimacion( String tipoAnimacion )
+    {
+        _tipoAnimacion = tipoAnimacion;
+    }
+
+    public int getEdadRecomendada()
+    {
+        return _edadRecomendada;
+    }
+
+    public void setEdadRecomendada( int edadRecomendada )
+    {
+        //validación
+        if( edadRecomendada < 0 )
+            _edadRecomendada = 0;
+        else
+            _edadRecomendada = edadRecomendada;
+    }
+
+        //sobreescritura
     @Override
     public void despliega()
     {
-        // TODO requiere una excepcion: si _fechaVista es 'null' 
-        Date d = getFechaVista().getTime();
-        SimpleDateFormat sF = new 
-                SimpleDateFormat( "dd 'de' MMMM 'del' yyyy." );
-        String s = sF.format( d );
-        
-        System.out.println( "\n****** Datos ******");
-        System.out.println( "Titulo: " + getTitulo() );
-        System.out.println( "Titulo traducido: " + getTituloTraducido() );
-        System.out.println( "Clasificacion: " + getClasificacion() );
-        System.out.println( "Genero: " + getGenero() );
-        System.out.println( "Duración: " + getDuracion() + " minutos" );
-        System.out.println( "Sinopsis: " + getSinopsis() );
-        System.out.println( "Pais: " + getPais() );
-        System.out.println( "Anyo: " + getAnyo() );
-        System.out.println( "Idioma: " + getIdioma() );
-        System.out.println( "Director: " + getDirtector() );
-        System.out.println( "Costo: $" + getCosto() );
-        System.out.println( "Vista: " + isVista() );
-        System.out.println( "Fecha en que se vio: " + s );
-        System.out.println( "Calificacion: " + getCalificacion() );
+        super.despliega();
         System.out.println( "Tipo de Animación: " + _tipoAnimacion );
         System.out.println( "Edad Recomendada: " + _edadRecomendada );
+        System.out.println( "*********************" );
+    }
+    
+    @Override
+    public String toString()
+    {
+        String str = super.toString() 
+                + "\nTipo de Animación: " + _tipoAnimacion
+                + "\nEdad Recomendada: " + _edadRecomendada
+                + "\n*********************";
+        return str;
     }
 }
