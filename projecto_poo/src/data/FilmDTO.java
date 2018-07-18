@@ -298,7 +298,7 @@ public class FilmDTO
     }
 
         // implemented
-    public void display()
+    public void deploy()
     {
         // TODO requiere una excepcion: si _dateWatched es 'null' 
         Date fS = new Date();
