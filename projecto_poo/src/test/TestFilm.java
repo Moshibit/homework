@@ -23,16 +23,14 @@ public class TestFilm
         // objects that store films data are created
         FilmDTO movie1 = new FilmDTO( "Pulp Fiction", "Tiempos violentos", 'B',
                 "Thriller", 154, "Estados Unidos", 1994, "Inglés", 
-                "Quentin Tarantino", bd, true, c, 5, "bla bla bla" );
+                "Quentin Tarantino", bd);
         ChildFilmDTO movie2 = new ChildFilmDTO("The Incredibles", 
             "Los increíbles", 'A',"Superheroes", 115, "Estados Unidos", 
-            2004, "Inglés", "Walt Disney", bd, true, c, 5, "bla bla", 
-            "3d", 7);
+            2004, "Inglés", "Walt Disney", bd, "3d", 7);
         DocumentaryFilmDTO movie3 = new DocumentaryFilmDTO(
                 "Bowling for Columbine", "Masacre en Columbine", 'B', 
                 "Documental", 120, "Estados Unidos", 2002, "Inglés", 
-                "Michael Moore", bd, false, c, 5, "bla bla bla", 
-                "problemas de las armas en EEUU"); 
+                "Michael Moore", bd, "problemas de las armas en EEUU"); 
         FilmDTO movie4 = new FilmDTO();
         ChildFilmDTO movie5 = new ChildFilmDTO();
         DocumentaryFilmDTO movie6 = new DocumentaryFilmDTO();
@@ -54,7 +52,7 @@ public class TestFilm
         
         for(int i = 0; i < testArray.length; i++)
         {
-        	testArray[i].display();
+        	testArray[i].deploy();
         	// System.out.println( testArray[i].toString() );
         }
 

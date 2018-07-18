@@ -4,9 +4,6 @@
 package data;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * @author Erik J
@@ -27,14 +24,7 @@ public class FilmDTO
     private String     _language; 
     private String     _dirtector; 
     private BigDecimal _cost;
-            // user
-    private boolean    _watched;// true = yes, false = no
-    private Calendar   _watchedDate;   
-    private int        _score;// maximum 5   
-    private String     _synopsis;// String list??
         // class attributes
-    SimpleDateFormat myDateFormat = new 
-            SimpleDateFormat( "dd 'de' MMMM 'del' yyyy." );
     BigDecimal zeroBD = new BigDecimal("0.00");
     
     // methods
@@ -58,15 +48,10 @@ public class FilmDTO
      * @param language
      * @param dirtector
      * @param cost
-     * @param watched
-     * @param dateWatched
-     * @param score
-     * @param synopsis
      */
     public FilmDTO( String name, String translatedName, char rating,
             String genre, int duration, String country, int year, String language,
-            String dirtector, BigDecimal cost, boolean watched,
-            Calendar dateWatched, int score, String synopsis )
+            String dirtector, BigDecimal cost )
     {
         super();
         _name = name;
@@ -99,19 +84,6 @@ public class FilmDTO
             _cost = cost;
         else
             _cost = zeroBD;
-        _watched = watched;
-        // validation dateWatched
-        Calendar today = Calendar.getInstance();
-        if( dateWatched.after( today ) ) 
-            _dateWatched = dateWatched;
-        else 
-            _dateWatched = today;
-        // validation score
-        if (score > 0 && score < 6)
-            _score = score;
-        else 
-            _score = 0;
-        _synopsis = synopsis;
     }
 
     /**
@@ -248,83 +220,22 @@ public class FilmDTO
             _cost = zeroBD;
     }
     
-    public boolean isWatched()
-    {
-        return _watched;
-    }
     
-    public void setWatched( boolean watched )
-    {
-        _watched = watched;
-    }
-    
-    public Calendar getDateWatched()
-    {
-        return _dateWatched;
-    }
-    
-    public void setDateWatched( Calendar dateWatched )
-    {
-        // validation dateWatched
-        Calendar today = Calendar.getInstance();
-        if( dateWatched.after( today ) ) 
-            _dateWatched = dateWatched;
-        else 
-            _dateWatched = today;
-    }
-    
-    public int getscore()
-    {
-        return _score;
-    }
-    
-    public void setscore( int score )
-    {
-        // validation
-        if (score > 0 && score < 6)
-            _score = score;
-        else 
-            _score = 0;
-    }
-    
-    public String getSynopsis()
-    {
-        return _synopsis;
-    }
-    
-    public void setSynopsis( String synopsis )
-    {
-        _synopsis = synopsis;
-    }
 
         // implemented
     public void deploy()
     {
-        // TODO requiere una excepcion: si _dateWatched es 'null' 
-        Date fS = new Date();
-        String sC = new String();
-        
-        if( _dateWatched != null ) 
-        {
-            fS = _dateWatched.getTime();
-            sC = myDateFormat.format( fS );
-        } 
-        
         System.out.println( "\n****** Datos ******" );
         System.out.println( "Titulo: " + _name );
         System.out.println( "Titulo traducido: " + _translatedName );
         System.out.println( "Clasificacion: " + _rating ); 
         System.out.println( "Genero: " + _genre );
-        System.out.println( "Duraci贸n: " + _duration + " minutos" );
-        System.out.println( "Sinopsis: " + _synopsis );
-        System.out.println( "Pa铆s: " + _country );
-        System.out.println( "A帽o: " + _year );
+        System.out.println( "Duraci髇: " + _duration + " minutos" );
+        System.out.println( "Pa韘: " + _country );
+        System.out.println( "A駉: " + _year );
         System.out.println( "Idioma: " + _language );
         System.out.println( "Director: " + _dirtector );
         System.out.println( "Costo: $" + _cost );
-        System.out.println( "Vista: " + _watched );
-        System.out.println( "Fecha en que se vio: " + sC );
-        System.out.println( "Calificaci贸n: " + _score );
         System.out.println( "*********************" );
     }
     
@@ -332,31 +243,17 @@ public class FilmDTO
     @Override
     public String toString()
     {
-        // TODO requiere una excepcion: si _dateWatched es 'null'
-        Date fS = new Date();
-        String sC = new String();
-        
-        if( _dateWatched != null ) 
-        {
-            fS = _dateWatched.getTime();
-            sC = myDateFormat.format( fS );
-        } 
-        
         String str = "\n****** Datos ******"
                 + "\nTitulo: " + _name
                 + "\nTitulo traducido: " + _translatedName
                 + "\nClasificacion: " + _rating
                 + "\nGenero: " + _genre
-                + "\nDuraci贸n: " + _duration + " minutos"
-                + "\nSinopsis: " + _synopsis
-                + "\nPa铆s: " + _country
-                + "\nA帽o: " + _year
+                + "\nDuraci髇: " + _duration + " minutos"
+                + "\nPa韘: " + _country
+                + "\nA駉: " + _year
                 + "\nIdioma: " + _language
                 + "\nDirector: " + _dirtector
                 + "\nCosto: $" + _cost
-                + "\nVista: " + _watched
-                + "\nFecha en que se vio: " + sC
-                + "\nCalificaci贸n: " + _score
                 + "\n*********************";
         return str;
     }

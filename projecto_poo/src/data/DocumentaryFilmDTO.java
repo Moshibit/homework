@@ -4,7 +4,6 @@
 package data;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
 
 /**
  * @author Erik J
@@ -36,20 +35,14 @@ public class DocumentaryFilmDTO extends FilmDTO
      * @param language
      * @param dirtector
      * @param cost
-     * @param watched
-     * @param dateWatched
-     * @param score
-     * @param synopsis
      */
     public DocumentaryFilmDTO( String name, String translatedName,
             char rating, String genre, int duration, String country,
             int year, String language, String dirtector, BigDecimal cost,
-            boolean watched, Calendar dateWatched, int score,
-            String synopsis, String theme )
+            String theme )
     {
         super( name, translatedName, rating, genre, duration, country,
-                year, language, dirtector, cost, watched, dateWatched, score,
-                synopsis );
+                year, language, dirtector, cost );
         _theme = theme;
     }
 
@@ -78,9 +71,9 @@ public class DocumentaryFilmDTO extends FilmDTO
     
         // override
     @Override
-    public void display()
+    public void deploy()
     {
-        super.display();
+        super.deploy();
         System.out.println( "Theme: " + _theme );
         System.out.println( "*********************" );
     }
