@@ -38,10 +38,6 @@ public class ChildFilmDTO extends FilmDTO
      * @param language
      * @param dirtector
      * @param cost
-     * @param watched
-     * @param watchedDate
-     * @param score
-     * @param synopsis
      * @param animationType
      * @param recommendedAge
      */
