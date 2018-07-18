@@ -4,7 +4,6 @@
 package data;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
 
 /**
  * @author Erik J
@@ -15,7 +14,7 @@ public class ChildFilmDTO extends FilmDTO
 {
     // attributes
         // instance attributes
-    private String  _animationType;//nombre provicional. 2D o 3D o R
+    private String  _animationType;// 2D o 3D o R
     private int     _recommendedAge;
     
     // methods
@@ -40,7 +39,7 @@ public class ChildFilmDTO extends FilmDTO
      * @param dirtector
      * @param cost
      * @param watched
-     * @param dateWatched
+     * @param watchedDate
      * @param score
      * @param synopsis
      * @param animationType
@@ -49,12 +48,10 @@ public class ChildFilmDTO extends FilmDTO
     public ChildFilmDTO( String name, String translatedName,
             char rating, String genre, int duration, String country,
             int year, String language, String dirtector, BigDecimal cost,
-            boolean watched, Calendar dateWatched, int score,
-            String synopsis,String animationType, int recommendedAge )
+            String animationType, int recommendedAge )
     {
         super( name, translatedName, rating, genre, duration, country,
-                year, language, dirtector, cost, watched, dateWatched, score,
-                synopsis );
+                year, language, dirtector, cost );
         _animationType = animationType;
         // validation
         if( recommendedAge < 0 )
@@ -73,7 +70,6 @@ public class ChildFilmDTO extends FilmDTO
         super( name, rating, genre );
     }
    
-        // display
     public String getAnimationType()
     {
         return _animationType;
@@ -100,9 +96,9 @@ public class ChildFilmDTO extends FilmDTO
 
         // override
     @Override
-    public void display()
+    public void deploy()
     {
-        super.display();
+        super.deploy();
         System.out.println( "Tipo de Animación: " + _animationType );
         System.out.println( "Edad Recomendada: " + _recommendedAge );
         System.out.println( "*********************" );
