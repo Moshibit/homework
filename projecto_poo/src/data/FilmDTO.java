@@ -29,7 +29,7 @@ public class FilmDTO
     private BigDecimal _cost;
             // user
     private boolean    _watched;// true = yes, false = no
-    private Calendar   _dateWatched;   
+    private Calendar   _watchedDate;   
     private int        _score;// maximum 5   
     private String     _synopsis;// String list??
         // class attributes
@@ -315,16 +315,16 @@ public class FilmDTO
         System.out.println( "Titulo traducido: " + _translatedName );
         System.out.println( "Clasificacion: " + _rating ); 
         System.out.println( "Genero: " + _genre );
-        System.out.println( "Duraci髇: " + _duration + " minutos" );
+        System.out.println( "Duraci贸n: " + _duration + " minutos" );
         System.out.println( "Sinopsis: " + _synopsis );
-        System.out.println( "Pa韘: " + _country );
-        System.out.println( "A駉: " + _year );
+        System.out.println( "Pa铆s: " + _country );
+        System.out.println( "A帽o: " + _year );
         System.out.println( "Idioma: " + _language );
         System.out.println( "Director: " + _dirtector );
         System.out.println( "Costo: $" + _cost );
         System.out.println( "Vista: " + _watched );
         System.out.println( "Fecha en que se vio: " + sC );
-        System.out.println( "Calificaci髇: " + _score );
+        System.out.println( "Calificaci贸n: " + _score );
         System.out.println( "*********************" );
     }
     
@@ -347,16 +347,16 @@ public class FilmDTO
                 + "\nTitulo traducido: " + _translatedName
                 + "\nClasificacion: " + _rating
                 + "\nGenero: " + _genre
-                + "\nDuraci髇: " + _duration + " minutos"
+                + "\nDuraci贸n: " + _duration + " minutos"
                 + "\nSinopsis: " + _synopsis
-                + "\nPa韘: " + _country
-                + "\nA駉: " + _year
+                + "\nPa铆s: " + _country
+                + "\nA帽o: " + _year
                 + "\nIdioma: " + _language
                 + "\nDirector: " + _dirtector
                 + "\nCosto: $" + _cost
                 + "\nVista: " + _watched
                 + "\nFecha en que se vio: " + sC
-                + "\nCalificaci髇: " + _score
+                + "\nCalificaci贸n: " + _score
                 + "\n*********************";
         return str;
     }
