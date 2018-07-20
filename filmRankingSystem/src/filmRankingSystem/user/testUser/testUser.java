@@ -4,7 +4,7 @@
 package filmRankingSystem.user.testUser;
 
 /**
- * @author Erik J
+ * @author EEE
  */
 public class testUser
 {

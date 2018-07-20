@@ -4,7 +4,7 @@
 package filmRankingSystem.user.adminUser;
 
 /**
- * @author Erik J
+ * @author EEE
  */
 public interface adminUser
 {

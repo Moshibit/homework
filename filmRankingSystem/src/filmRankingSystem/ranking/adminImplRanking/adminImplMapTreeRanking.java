@@ -6,7 +6,7 @@ package filmRankingSystem.ranking.adminImplRanking;
 import filmRankingSystem.ranking.adminRanking.adminRanking;
 
 /**
- * @author Erik J
+ * @author EEE
  */
 public class adminImplMapTreeRanking implements adminRanking
 {

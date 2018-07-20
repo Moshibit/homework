@@ -6,7 +6,7 @@ package filmRankingSystem.film.dataFilm;
 import java.math.BigDecimal;
 
 /**
- * @author Erik J
+ * @author EEE
  * This class inherits from Film class
  * This class stores child's film data.
  */

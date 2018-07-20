@@ -4,7 +4,7 @@
 package filmRankingSystem.film.adminFilm;
 
 /**
- * @author Erik J
+ * @author EEE
  */
 public interface adminFilm
 {

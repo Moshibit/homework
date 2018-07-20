@@ -1,18 +1,18 @@
 /**
  * create: 19/07/2018
  */
-package filmRankingSystem.ranking.testRanking;
+package filmRankingSystem.user.dataUser;
 
 /**
  * @author EEE
  */
-public class testRanking
+public class UserDTO
 {
 
     /**
      * 
      */
-    public testRanking()
+    public UserDTO()
     {
         // TODO Auto-generated constructor stub
     }
@@ -26,4 +26,17 @@ public class testRanking
 
     }
 
+    public void deploy()
+    {
+        System.out.println( "" );
+
+    }
+    
+        // override
+    @Override
+    public String toString()
+    {
+        String str = "";
+        return str;
+    }
 }

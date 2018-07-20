@@ -6,7 +6,7 @@ package filmRankingSystem.user.adminImplUser;
 import filmRankingSystem.user.adminUser.adminUser;
 
 /**
- * @author Erik J
+ * @author EEE
  */
 public class adminImplSetUser implements adminUser
 {

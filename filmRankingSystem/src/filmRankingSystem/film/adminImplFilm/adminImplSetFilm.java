@@ -6,7 +6,7 @@ package filmRankingSystem.film.adminImplFilm;
 import filmRankingSystem.film.adminFilm.adminFilm;
 
 /**
- * @author Erik J
+ * @author EEE
  */
 public class adminImplSetFilm implements adminFilm
 {
