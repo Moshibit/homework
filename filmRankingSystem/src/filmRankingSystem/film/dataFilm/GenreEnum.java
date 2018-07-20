@@ -4,7 +4,7 @@
 package filmRankingSystem.film.dataFilm;
 
 /**
- * @author Erik J
+ * @author EEE
  */
 public enum GenreEnum 
 {

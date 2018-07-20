@@ -4,7 +4,7 @@
 package filmRankingSystem.ranking.testRanking;
 
 /**
- * @author Erik J
+ * @author EEE
  */
 public class testAdminImplRanking
 {

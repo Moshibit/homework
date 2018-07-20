@@ -6,7 +6,7 @@ package filmRankingSystem.film.dataFilm;
 import java.math.BigDecimal;
 
 /**
- * @author Erik J
+ * @author EEE
  * This class stores film data.
  */
 public class FilmDTO

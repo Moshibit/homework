@@ -7,6 +7,9 @@ import filmRankingSystem.film.dataFilm.ChildFilmDTO;
 import filmRankingSystem.film.dataFilm.DocumentaryFilmDTO;
 import filmRankingSystem.film.dataFilm.FilmDTO;
 
+/**
+ * @author EEE
+ */
 public class TestFilm
 {
 

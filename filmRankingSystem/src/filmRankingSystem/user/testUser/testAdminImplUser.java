@@ -1,5 +1,8 @@
 package filmRankingSystem.user.testUser;
 
+/**
+ * @author EEE
+ */
 public class testAdminImplUser
 {
 
