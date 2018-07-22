@@ -14,16 +14,16 @@ public class FilmDTO
     // attributes
         // instance attributes
             // general
-    private String     _name;
-    private String     _translatedName;
-    private char       _rating;// A, B, C, D simplified Mexico's rating system
-    private String     _genre;// list maximum 3
-    private int        _duration;// minutes
-    private String     _country; 
-    private int        _year;
-    private String     _language; 
-    private String     _dirtector; 
-    private BigDecimal _cost;
+    private String      _name;
+    private String      _translatedName;
+    private RatingEnum  _rating;// A, B, C, D simplified Mexico's rating system
+    private GenreEnum[] _genre;// list maximum 3
+    private int         _duration;// minutes
+    private String      _country; 
+    private int         _year;
+    private String      _language; 
+    private String      _dirtector; 
+    private BigDecimal  _cost;
         // class attributes
     BigDecimal zeroBD = new BigDecimal("0.00");
     
@@ -49,22 +49,15 @@ public class FilmDTO
      * @param dirtector
      * @param cost
      */
-    public FilmDTO( String name, String translatedName, char rating,
-            String genre, int duration, String country, int year, String language,
+    public FilmDTO( String name, String translatedName, RatingEnum rating,
+            GenreEnum[] genre, int duration, String country, int year, String language,
             String dirtector, BigDecimal cost )
     {
         super();
         _name = name;
         _translatedName = translatedName;
-        // validation rating
-        if( rating == 'A' )
-            _rating = rating;
-        else if( rating == 'B' )
-            _rating = rating;
-        else if(rating == 'C' )
-            _rating = rating;
-        else
-            _rating = '\u0000';
+        // TODO validation rating
+        _rating = rating;
         _genre = genre;
         // validation duration
         if( duration > 0 )
@@ -91,7 +84,7 @@ public class FilmDTO
      * @param rating
      * @param genre
      */
-    public FilmDTO( String name, char rating, String genre )
+    public FilmDTO( String name, RatingEnum rating, GenreEnum[] genre )
     {
         super();
         _name = name;
@@ -100,50 +93,43 @@ public class FilmDTO
     }
     
         // accessors
-    public String getTitulo()
+    public String getName()
     {
         return _name;
     }
     
-    public void setTitulo( String name )
+    public void setName( String name )
     {
         _name = name;
     }
     
-    public String gettranslatedName()
+    public String getTranslatedName()
     {
         return _translatedName;
     }
     
-    public void settranslatedName( String translatedName )
+    public void setTranslatedName( String translatedName )
     {
         _translatedName = translatedName;
     }
     
-    public char getRating()
+    public RatingEnum getRating()
     {
         return _rating;
     }
     
-    public void setRating( char rating )
+    public void setRating( RatingEnum rating )
     {
-        // validation
-        if( rating == 'A' )
-            _rating = rating;
-        else if( rating == 'B' )
-            _rating = rating;
-        else if(rating == 'C' )
-            _rating = rating;
-        else
-            _rating = '\u0000';
+        // TODO validation
+        _rating = rating;
     }
     
-    public String getGenre()
+    public GenreEnum[] getGenre()
     {
         return _genre;
     }
     
-    public void setGenre( String genre )
+    public void setGenre( GenreEnum[] genre )
     {
         _genre = genre;
     }
@@ -220,34 +206,36 @@ public class FilmDTO
             _cost = zeroBD;
     }
     
-    
-
         // implemented
     public void deploy()
     {
-        System.out.println( "\n****** Datos ******" );
-        System.out.println( "Titulo: " + _name );
-        System.out.println( "Titulo traducido: " + _translatedName );
-        System.out.println( "Clasificacion: " + _rating ); 
-        System.out.println( "Genero: " + _genre );
+        System.out.println( "\n***********************" );
+        System.out.println( "Información de la pelicual" );
+        System.out.println( "***********************" );
+        System.out.println( "Título: " + _name );
+        System.out.println( "Título traducido: " + _translatedName );
+        System.out.println( "Clasificación: " + _rating ); 
+        System.out.println( "Género: " + _genre );// TODO
         System.out.println( "Duración: " + _duration + " minutos" );
         System.out.println( "País: " + _country );
         System.out.println( "Año: " + _year );
         System.out.println( "Idioma: " + _language );
         System.out.println( "Director: " + _dirtector );
         System.out.println( "Costo: $" + _cost );
-        System.out.println( "*********************" );
+        System.out.println( "***********************" );
     }
     
         // override
     @Override
     public String toString()
     {
-        String str = "\n****** Datos ******"
-                + "\nTitulo: " + _name
-                + "\nTitulo traducido: " + _translatedName
-                + "\nClasificacion: " + _rating
-                + "\nGenero: " + _genre
+        String str = "\n***********************"
+                + "\nInformación de la pelicual"
+                + "\n***********************"
+                + "\nTítulo: " + _name
+                + "\nTítulo traducido: " + _translatedName
+                + "\nClasificación: " + _rating
+                + "\nGénero: " + _genre //TODO
                 + "\nDuración: " + _duration + " minutos"
                 + "\nPaís: " + _country
                 + "\nAño: " + _year

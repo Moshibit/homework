@@ -37,13 +37,13 @@ public class SaveDataFilm
         
         try
         {
-            ObjectOutputStream miOOS = new ObjectOutputStream(
+            ObjectOutputStream myOOS = new ObjectOutputStream(
                     new FileOutputStream( archivoSoft ) );
             
             for(int i = 0; i < mylista.size(); i++)
-                miOOS.writeObject( ( FilmDTO )mylista.get( i ) );
+                myOOS.writeObject( ( FilmDTO )mylista.get( i ) );
             
-            miOOS.close();
+            myOOS.close();
         }
         
         catch (Exception e)
@@ -62,18 +62,18 @@ public class SaveDataFilm
         
         try
         {             
-            ObjectInputStream miOIS = 
+            ObjectInputStream myOOS = 
                     new ObjectInputStream( new FileInputStream( miArchivo ) );
             FilmDTO c1 = new FilmDTO();
-            c1 = ( FilmDTO )miOIS.readObject();
+            c1 = ( FilmDTO )myOOS.readObject();
             
             while (c1 != null)
             {
                 lp.add( ( FilmDTO )c1 );
-                c1 =( FilmDTO )miOIS.readObject();
+                c1 =( FilmDTO )myOOS.readObject();
             }
             
-            miOIS.close();
+            myOOS.close();
         }
         
         catch ( EOFException e1 )
@@ -96,18 +96,18 @@ public class SaveDataFilm
     {
         try
         {
-            ObjectInputStream miOIS = 
+            ObjectInputStream myOOS = 
                     new ObjectInputStream( new FileInputStream
                     ("Films.txt"));
             FilmDTO c1 = new FilmDTO();
-            c1 = ( FilmDTO )miOIS.readObject();
+            c1 = ( FilmDTO )myOOS.readObject();
           
             while ( c1 != null )
             {    
-                c1 = ( FilmDTO )miOIS.readObject();
+                c1 = ( FilmDTO )myOOS.readObject();
                 c1.deploy();
             }
-            miOIS.close();
+            myOOS.close();
         }
         
         catch ( EOFException e1 )
