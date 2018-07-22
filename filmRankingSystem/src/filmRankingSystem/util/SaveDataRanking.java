@@ -37,13 +37,13 @@ public class SaveDataRanking
         
         try
         {
-            ObjectOutputStream miOOS = new ObjectOutputStream(
+            ObjectOutputStream myOOS = new ObjectOutputStream(
                     new FileOutputStream( archivoSoft ) );
             
             for(int i = 0; i < mylista.size(); i++)
-                miOOS.writeObject( ( RankingDTO )mylista.get( i ) );
+                myOOS.writeObject( ( RankingDTO )mylista.get( i ) );
             
-            miOOS.close();
+            myOOS.close();
         }
         
         catch (Exception e)
@@ -62,18 +62,18 @@ public class SaveDataRanking
         
         try
         {             
-            ObjectInputStream miOIS = 
+            ObjectInputStream myOOS = 
                     new ObjectInputStream( new FileInputStream( miArchivo ) );
             RankingDTO c1 = new RankingDTO();
-            c1 = ( RankingDTO )miOIS.readObject();
+            c1 = ( RankingDTO )myOOS.readObject();
             
             while (c1 != null)
             {
                 lp.add( ( RankingDTO )c1 );
-                c1 =( RankingDTO )miOIS.readObject();
+                c1 =( RankingDTO )myOOS.readObject();
             }
             
-            miOIS.close();
+            myOOS.close();
         }
         
         catch ( EOFException e1 )
@@ -96,18 +96,18 @@ public class SaveDataRanking
     {
         try
         {
-            ObjectInputStream miOIS = 
+            ObjectInputStream myOOS = 
                     new ObjectInputStream( new FileInputStream
                     ("Rankings.txt"));
             RankingDTO c1 = new RankingDTO();
-            c1 = ( RankingDTO )miOIS.readObject();
+            c1 = ( RankingDTO )myOOS.readObject();
           
             while ( c1 != null )
             {    
-                c1 = ( RankingDTO )miOIS.readObject();
+                c1 = ( RankingDTO )myOOS.readObject();
                 c1.deploy();
             }
-            miOIS.close();
+            myOOS.close();
         }
         
         catch ( EOFException e1 )

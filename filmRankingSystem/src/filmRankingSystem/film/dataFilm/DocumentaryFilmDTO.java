@@ -23,7 +23,7 @@ public class DocumentaryFilmDTO extends FilmDTO
     {
         // TODO Auto-generated constructor stub
     }
-
+   
     /**
      * @param name
      * @param translatedName
@@ -35,29 +35,18 @@ public class DocumentaryFilmDTO extends FilmDTO
      * @param language
      * @param dirtector
      * @param cost
+     * @param theme
      */
     public DocumentaryFilmDTO( String name, String translatedName,
-            char rating, String genre, int duration, String country,
+            RatingEnum rating, GenreEnum[] genre, int duration, String country,
             int year, String language, String dirtector, BigDecimal cost,
             String theme )
     {
-        super( name, translatedName, rating, genre, duration, country,
-                year, language, dirtector, cost );
+        super( name, translatedName, rating, genre, duration, country, year,
+                language, dirtector, cost );
         _theme = theme;
     }
 
-    /**
-     * @param name
-     * @param rating
-     * @param genre
-     */
-    public DocumentaryFilmDTO( String name, char rating,
-            String genre )
-    {
-        super( name, rating, genre );
-        // TODO Auto-generated constructor stub
-    }
-        
         // accessors
     public String getTheme()
     {
