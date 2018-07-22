@@ -34,10 +34,7 @@ public class RankingDTO
     /**
      * 
      */
-    public RankingDTO()
-    {
-        // TODO Auto-generated constructor stub
-    }   
+    public RankingDTO(){}   
         
     /**
      * @param film
@@ -76,6 +73,26 @@ public class RankingDTO
 
 
         // accessors
+    public FilmDTO getFilm()
+    {
+        return _film;
+    }
+
+    public void setFilm( FilmDTO film )
+    {
+        _film = film;
+    }
+
+    public UserDTO getUser()
+    {
+        return _user;
+    }
+
+    public void setUser( UserDTO user )
+    {
+        _user = user;
+    }
+    
     public boolean isView()
     {
         return _view;
@@ -148,8 +165,7 @@ public class RankingDTO
         System.out.println( "\n*******************" );
         System.out.println( "Rankin" );
         System.out.println( "*******************" );
-        System.out.println( "Usuario: " + _user.getName() + " " + 
-                _user.getSurname1() + " " + _user.getSurname2() );
+        System.out.println( "Usuario: " + _user.getUserName() );
         System.out.println( "Película: " + _film.getName() );
         System.out.println( "vista: : " + _view );
         System.out.println( "Fecha en que se vio : " + s );
@@ -174,9 +190,7 @@ public class RankingDTO
         String str = "\n*******************"
                 + "\nRanking"
                 + "\n*******************"
-                + "\nUsuario: " + _user.getName().toString() 
-                        + " " + _user.getSurname1() 
-                        + " " + _user.getSurname2().toString()
+                + "\nUsuario: " + _user.getUserName()
                 + "\nPelícula: " + _film.getName()
                 + "\nvista: : " + _view 
                 + "\nFecha en que se vio : " + s

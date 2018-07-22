@@ -13,28 +13,28 @@ public class UserDTO
     private String _name;
     private String _surname1;
     private String _surname2;
+    private String _userName;
 
     // methods
         // constructors
     /**
      * 
      */
-    public UserDTO()
-    {
-        // TODO Auto-generated constructor stub
-    }
+    public UserDTO(){}
     
     /**
      * @param name
      * @param surname1
      * @param surname2
      */
-    public UserDTO( String name, String surname1, String surname2 )
+    public UserDTO( String name, String surname1, String surname2, 
+            String userName )
     {
         super();
         _name = name;
         _surname1 = surname1;
         _surname2 = surname2;
+        _userName = userName;
     }
 
         // accessors
@@ -67,8 +67,18 @@ public class UserDTO
     {
         _surname2 = surname2;
     }
-        
-        // implemented
+    
+    public String getUserName()
+    {
+        return _userName;
+    }
+
+    public void setUserName( String userName )
+    {
+        _userName = userName;
+    }
+
+    // implemented
     public void deploy()
     {
         System.out.println( "" );
