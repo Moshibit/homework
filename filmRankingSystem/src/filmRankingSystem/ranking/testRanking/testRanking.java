@@ -28,7 +28,7 @@ public class testRanking
      */
     public static void main( String[] args )
     {
-        UserDTO user1 = new UserDTO( "Pedro", "Hernandez", "Aldama" );
+        UserDTO user1 = new UserDTO( "Pedro", "Galindo", "Fernancez" );
         
         FilmDTO film1 = new FilmDTO( "ESDLA" );
         
@@ -40,8 +40,7 @@ public class testRanking
         rank1.deploy();
         
         System.out.println( rank1.toString() );
-
-
+    
     }
 
 }
