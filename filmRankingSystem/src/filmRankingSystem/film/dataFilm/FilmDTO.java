@@ -36,6 +36,17 @@ public class FilmDTO
     {
         
     }
+ 
+    /**
+     * @param name
+     */
+    public FilmDTO( String name )
+    {
+        super();
+        _name = name;
+    }
+
+
 
     /**
      * @param name
@@ -66,7 +77,7 @@ public class FilmDTO
             _duration = 0;
         _country = country;
         // validation year
-        if( year >= 1895 )
+        if( year >= 1895 && year < 9999)
             _year = year;
         else
             _year = 1895;
