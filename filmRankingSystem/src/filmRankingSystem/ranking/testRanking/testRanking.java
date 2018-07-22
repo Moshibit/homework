@@ -3,6 +3,12 @@
  */
 package filmRankingSystem.ranking.testRanking;
 
+import java.util.Calendar;
+
+import filmRankingSystem.film.dataFilm.FilmDTO;
+import filmRankingSystem.ranking.dataRanking.RankingDTO;
+import filmRankingSystem.user.dataUser.UserDTO;
+
 /**
  * @author EEE
  */
@@ -22,7 +28,19 @@ public class testRanking
      */
     public static void main( String[] args )
     {
-        // TODO Auto-generated method stub
+        UserDTO user1 = new UserDTO( "Pedro", "Hernandez", "Aldama" );
+        
+        FilmDTO film1 = new FilmDTO( "ESDLA" );
+        
+        Calendar c = Calendar.getInstance();
+        
+        RankingDTO rank1 = new RankingDTO( film1, user1, true, c,5, "asdf", 
+                "fdaa");
+        
+        rank1.deploy();
+        
+        System.out.println( rank1.toString() );
+
 
     }
 
