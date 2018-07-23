@@ -6,7 +6,6 @@ package filmRankingSystem.ranking.adminImplRanking;
 import java.util.LinkedList;
 import java.util.List;
 
-import DatosSoftEducativo.SoftEducativo;
 import filmRankingSystem.film.dataFilm.FilmDTO;
 import filmRankingSystem.ranking.adminRanking.AdminRanking;
 import filmRankingSystem.ranking.dataRanking.RankingDTO;
@@ -48,7 +47,8 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public boolean delete( int index )
     {
-        if( myStructure.remove( index ) != null )
+        if( myStructure.remove( index ) != null && index > myStructure.size() &&
+                    index < myStructure.size() )
             System.out.println( ">> Se elimnió el ranking" );
         else
         {
@@ -259,15 +259,38 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public void findFilm( String film )
     {
-        // TODO Auto-generated method stub
-        
+        System.out.println( "============================================" );
+        System.out.println( ">> Resultados de Busqueda: " + film );
+        System.out.println( "============================================" );
+        for( RankingDTO r : myStructure )
+            if( r.getFilm().getName() != null && 
+                    r.getFilm().getName().equals( film ) )
+            {
+                System.out.println( "indice: " + myStructure.indexOf( r ) );
+                System.out.println( r.toString() );
+                System.out.println( "--------------------------------------------" );    
+            }
+            else
+                System.out.println( ">> No se encontró resultados en la busqueda" );
+        System.out.println( "============================================" );
     }
 
     @Override
     public void find( int rank )
     {
-        // TODO Auto-generated method stub
-        
+        System.out.println( "============================================" );
+        System.out.println( ">> Resultados de Busqueda: " + rank );
+        System.out.println( "============================================" );
+        for( RankingDTO r : myStructure )
+            if( r.getRank() == rank )
+            {
+                System.out.println( "indice: " + myStructure.indexOf( r ) );
+                System.out.println( r.toString() );
+                System.out.println( "--------------------------------------------" );    
+            }
+            else
+                System.out.println( ">> No se encontró resultados en la busqueda" );
+        System.out.println( "============================================" );
     }
 
     /* (non-Javadoc)
@@ -276,8 +299,13 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public void consult()
     {
-        // TODO Auto-generated method stub
-
+        System.out.println( "============================================" );
+        System.out.println( "Consulta de servicios" );
+        System.out.println( "============================================" );
+        for( RankingDTO r : myStructure )
+            if(r != null)
+                System.out.println( r.toString() );
+        System.out.println( "============================================" );
     }
     
 }
