@@ -162,7 +162,7 @@ public class RankingDTO
             s = myDateFormat.format( tempDate );
         }
         
-        System.out.println( "\n*******************" );
+        System.out.println( "*******************" );
         System.out.println( "Rankin" );
         System.out.println( "*******************" );
         System.out.println( "Usuario: " + _user.getUserName() );
@@ -187,7 +187,7 @@ public class RankingDTO
             tempDate = _watchedDate.getTime();
             s = myDateFormat.format( tempDate );
         }
-        String str = "\n*******************"
+        String str = "*******************"
                 + "\nRanking"
                 + "\n*******************"
                 + "\nUsuario: " + _user.getUserName()

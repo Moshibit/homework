@@ -3,9 +3,7 @@
  */
 package filmRankingSystem.ranking.adminRanking;
 
-import filmRankingSystem.film.dataFilm.FilmDTO;
 import filmRankingSystem.ranking.dataRanking.RankingDTO;
-import filmRankingSystem.user.dataUser.UserDTO;
 
 /**
  * @author EEE
@@ -75,25 +73,25 @@ public interface AdminRanking
      * @param 
      * This method 
      */
-    public boolean updateReview( int index, String synopsis );
+    public boolean updateReview( int index, String review );
     
     /**
      * @param 
      * This method 
      */
-    public boolean updateReview( RankingDTO ranking, String synopsis );
+    public boolean updateReview( RankingDTO ranking, String review );
     
     /**
      * @param user
      * This method  
      */
-    public void find( UserDTO user );
+    public void findUser( String user );
     
     /**
      * @param film
      * This method  
      */
-    public void find( FilmDTO film );
+    public void findFilm( String film );
     
     /**
      * @param rank

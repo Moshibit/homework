@@ -23,6 +23,15 @@ public class UserDTO
     public UserDTO(){}
     
     /**
+     * @param userName
+     */
+    public UserDTO( String userName )
+    {
+        super();
+        _userName = userName;
+    }
+
+    /**
      * @param name
      * @param surname1
      * @param surname2
@@ -82,7 +91,6 @@ public class UserDTO
     public void deploy()
     {
         System.out.println( "" );
-
     }
     
         // override

@@ -28,7 +28,7 @@ public class TestRanking
      */
     public static void main( String[] args )
     {
-        UserDTO user1 = new UserDTO( "Pedro", "Galindo", "Fernancez" );
+        UserDTO user1 = new UserDTO( "Pedro444" );
         
         FilmDTO film1 = new FilmDTO( "ESDLA" );
         
