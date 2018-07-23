@@ -8,5 +8,8 @@ package filmRankingSystem.film.adminFilm;
  */
 public interface AdminFilm
 {
-
+  public void buscanombre();
+	public void buscarating();
+	public void addfilm();
+	public void eliminarfilm();
 }
