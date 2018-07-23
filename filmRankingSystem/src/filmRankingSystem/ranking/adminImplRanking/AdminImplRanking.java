@@ -47,12 +47,17 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public boolean delete( int index )
     {
-        if( myStructure.remove( index ) != null && index > myStructure.size() &&
-                    index < myStructure.size() )
-            System.out.println( ">> Se elimnió el ranking" );
-        else
+        if( index > myStructure.size() && index < myStructure.size() )
+            if( myStructure.remove( index ) != null )
+                System.out.println( ">> Se elimnió el ranking" );
+            else
+            {
+                System.out.println( ">> No se eliminó" );
+                return false;
+            }
+        else 
         {
-            System.out.println( ">> No se eliminó" );
+            System.out.println( ">> índice incorrecto" );
             return false;
         }
         return true;
@@ -69,7 +74,7 @@ public class AdminImplRanking implements AdminRanking
             System.out.println( ">> Se elimnió el ranking" );
         else
         {
-            System.out.println( ">> No se eliminó" );
+            System.out.println( ">> No se eliminó o no existe" );
             return false;
         }
         return true;
@@ -241,56 +246,60 @@ public class AdminImplRanking implements AdminRanking
     public void findUser( String user )
     {
         System.out.println( "============================================" );
-        System.out.println( ">> Resultados de Busqueda: " + user );
+        System.out.println( ">> Resultados de busqueda de usuario: " + user );
         System.out.println( "============================================" );
-        for( RankingDTO r : myStructure )
-            if( r.getUser().getUserName() != null && 
-                    r.getUser().getUserName().equals( user ) )
+        for( RankingDTO r : myStructure)
+        {
+            if ( r.getUser() != null ) 
             {
-                System.out.println( "indice: " + myStructure.indexOf( r ) );
-                System.out.println( r.toString() );
-                System.out.println( "--------------------------------------------" );    
+                if( r.getUser().getUserName() != null && 
+                        r.getUser().getUserName().equals( user ) )
+                {
+                    System.out.println( "índice: " + myStructure.indexOf( r ) );
+                    System.out.println( r.toString() );
+                    System.out.println( "--------------------------------------------" );    
+                }
             }
-            else
-                System.out.println( ">> No se encontró resultados en la busqueda" );
-        System.out.println( "============================================" );
+        }
+        System.out.println( "============================================\n" );
     }
 
     @Override
     public void findFilm( String film )
     {
         System.out.println( "============================================" );
-        System.out.println( ">> Resultados de Busqueda: " + film );
+        System.out.println( ">> Resultados de busqueda de pelicula: " + film );
         System.out.println( "============================================" );
         for( RankingDTO r : myStructure )
-            if( r.getFilm().getName() != null && 
-                    r.getFilm().getName().equals( film ) )
+        {
+            if( r.getFilm() != null ) 
             {
-                System.out.println( "indice: " + myStructure.indexOf( r ) );
-                System.out.println( r.toString() );
-                System.out.println( "--------------------------------------------" );    
+                if( r.getFilm().getName() != null &&
+                        r.getFilm().getName().equals( film ) )
+                {
+                    System.out.println( "índice: " + myStructure.indexOf( r ) );
+                    System.out.println( r.toString() );
+                    System.out.println( "--------------------------------------------" );    
+                }
             }
-            else
-                System.out.println( ">> No se encontró resultados en la busqueda" );
-        System.out.println( "============================================" );
+        }
+        System.out.println( "============================================\n" );
     }
 
     @Override
-    public void find( int rank )
+    public void findRank( int rank )
     {
         System.out.println( "============================================" );
-        System.out.println( ">> Resultados de Busqueda: " + rank );
+        System.out.println( ">> Resultado de busqueda de calificación: " + rank );
         System.out.println( "============================================" );
         for( RankingDTO r : myStructure )
             if( r.getRank() == rank )
             {
-                System.out.println( "indice: " + myStructure.indexOf( r ) );
+                System.out.println( "índice: " + myStructure.indexOf( r ) );
                 System.out.println( r.toString() );
                 System.out.println( "--------------------------------------------" );    
             }
-            else
-                System.out.println( ">> No se encontró resultados en la busqueda" );
-        System.out.println( "============================================" );
+        System.out.println( "============================================\n" );
     }
 
     /* (non-Javadoc)
@@ -300,12 +309,16 @@ public class AdminImplRanking implements AdminRanking
     public void consult()
     {
         System.out.println( "============================================" );
-        System.out.println( "Consulta de servicios" );
+        System.out.println( "Consulta todo" );
         System.out.println( "============================================" );
         for( RankingDTO r : myStructure )
-            if(r != null)
+            if(r != null) 
+            {
+                System.out.println( "índice: " + myStructure.indexOf( r ) );
                 System.out.println( r.toString() );
-        System.out.println( "============================================" );
+                System.out.println( "--------------------------------------------" );
+            }
+        System.out.println( "============================================\n" );
     }
     
 }

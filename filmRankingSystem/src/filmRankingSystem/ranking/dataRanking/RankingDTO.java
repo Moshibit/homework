@@ -153,22 +153,30 @@ public class RankingDTO
         // Implemented
     public void deploy()
     {
+        String s1 = " ";
+        String s2 = " ";
+        
+        if( _user != null )
+            s1 = _user.getUserName();
+        if( _film != null )
+            s2 = _film.getName();
+        
         Date tempDate;
-        String s = " ";
+        String s3 = " ";
         
         if( _watchedDate != null ) 
         {
             tempDate = _watchedDate.getTime();
-            s = myDateFormat.format( tempDate );
+            s3 = myDateFormat.format( tempDate );
         }
         
         System.out.println( "*******************" );
         System.out.println( "Rankin" );
         System.out.println( "*******************" );
-        System.out.println( "Usuario: " + _user.getUserName() );
-        System.out.println( "Película: " + _film.getName() );
+        System.out.println( "Usuario: " + s1 );
+        System.out.println( "Película: " + s2 );
         System.out.println( "vista: : " + _view );
-        System.out.println( "Fecha en que se vio : " + s );
+        System.out.println( "Fecha en que se vio : " + s3 );
         System.out.println( "Calificación: " + _rank + "/5" );
         System.out.println( "Sinopsis: " + _synopsis );
         System.out.println( "Reseña: " + _review );
@@ -179,25 +187,33 @@ public class RankingDTO
     @Override
     public String toString()
     {
-        Date tempDate;
-        String s = " ";
+        String s1 = " ";
+        String s2 = " ";
         
+        if( _user != null )
+            s1 = _user.getUserName();
+        if( _film != null )
+            s2 = _film.getName();
+        
+        Date tempDate;
+        String s3 = " ";
+  
         if( _watchedDate != null ) 
         {
             tempDate = _watchedDate.getTime();
-            s = myDateFormat.format( tempDate );
+            s3 = myDateFormat.format( tempDate );
         }
         String str = "*******************"
                 + "\nRanking"
                 + "\n*******************"
-                + "\nUsuario: " + _user.getUserName()
-                + "\nPelícula: " + _film.getName()
+                + "\nUsuario: " + s1
+                + "\nPelícula: " + s2
                 + "\nvista: : " + _view 
-                + "\nFecha en que se vio : " + s
+                + "\nFecha en que se vio : " + s3
                 + "\nCalificación: " + _rank + "/5"
                 + "\nSinopsis: " + _synopsis
                 + "\nReseña: " + _review 
                 + "\n******************";
-        return str;
+        return str;      
     }
 }
