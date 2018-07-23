@@ -97,7 +97,7 @@ public interface AdminRanking
      * @param rank
      * This method  
      */
-    public void find( int rank );
+    public void findRank( int rank );
     
     /**
      * This method
