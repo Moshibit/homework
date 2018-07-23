@@ -47,17 +47,27 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public boolean delete( int index )
     {
-        if( index > myStructure.size() && index < myStructure.size() )
-            if( myStructure.remove( index ) != null )
-                System.out.println( ">> Se elimnió el ranking" );
-            else
+        if( myStructure.size() != 0)
+        {
+            if( index >= 0 && index < myStructure.size() )
             {
-                System.out.println( ">> No se eliminó" );
+                if( myStructure.remove( index ) != null )
+                    System.out.println( ">> Se elimnió el ranking" );
+                else
+                {
+                    System.out.println( ">> No se eliminó" );
+                    return false;
+                }
+            }
+            else 
+            {
+                System.out.println( ">> índice incorrecto" );
                 return false;
             }
+        }
         else 
         {
-            System.out.println( ">> índice incorrecto" );
+            System.out.println( ">> La lista está vacía" );
             return false;
         }
         return true;
@@ -87,15 +97,18 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public boolean updateView( int index, Boolean b )
     {
-        if( index > myStructure.size() && index < myStructure.size()  ) 
+        if( myStructure.size() != 0)
         {
-            myStructure.get( index ).setView( b );
-            System.out.println( ">> Se actualizó" );
-        }
-        else 
-        {
-            System.out.println( ">> No se actualizó" );
-            return false;
+            if( index >= 0 && index < myStructure.size()  ) 
+            {
+                myStructure.get( index ).setView( b );
+                System.out.println( ">> Se actualizó" );
+            }
+            else 
+            {
+                System.out.println( ">> No se actualizó" );
+                return false;
+            }
         }
         return true;   
     }
@@ -114,7 +127,7 @@ public class AdminImplRanking implements AdminRanking
         }
         else 
         {
-            System.out.println( ">> No se actualizó" );
+            System.out.println( ">> No se actualizó o no existe" );
             return false;
         }
         return true;   
@@ -127,14 +140,22 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public boolean updateRank( int index, int rank )
     {
-        if( index > myStructure.size() && index < myStructure.size()  ) 
+        if ( myStructure.size() != 0 )
         {
-            myStructure.get( index ).setRank( rank );
-            System.out.println( ">> Se actualizó el ranking" );
+            if( index >= 0 && index < myStructure.size()  ) 
+            {
+                myStructure.get( index ).setRank( rank );
+                System.out.println( ">> Se actualizó el ranking" );
+            }
+            else 
+            {
+                System.out.println( ">> No se actualizó el ranking" );
+                return false;
+            }
         }
-        else 
+        else
         {
-            System.out.println( ">> No se actualizó el ranking" );
+            System.out.println( ">> La lista está vacía" );
             return false;
         }
         return true;  
@@ -154,7 +175,7 @@ public class AdminImplRanking implements AdminRanking
         }
         else 
         {
-            System.out.println( ">> No se actualizó el ranking" );
+            System.out.println( ">> No se actualizó el ranking o no existe" );
             return false;
         }
         return true;  
@@ -167,17 +188,25 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public boolean updateSynopsis( int index, String synopsis )
     {
-        if( index > myStructure.size() && index < myStructure.size()  ) 
+        if( myStructure.size() != 0)
         {
-            myStructure.get( index ).setSynopsis( synopsis );
-            System.out.println( ">> Se actualizó la sinopsis" );
+            if( index >= 0 && index < myStructure.size()  ) 
+            {
+                myStructure.get( index ).setSynopsis( synopsis );
+                System.out.println( ">> Se actualizó la sinopsis" );
+            }
+            else 
+            {
+                System.out.println( ">> No se actualizó la sinopsis" );
+                return false;
+            }
         }
-        else 
+        else
         {
-            System.out.println( ">> No se actualizó la sinopsis" );
-            return false;
+            System.out.println( ">> La lista está vacía" );
+            return true;
         }
-        return true;  
+        return true;
     }
 
     /* (non-Javadoc)
@@ -208,14 +237,22 @@ public class AdminImplRanking implements AdminRanking
     @Override
     public boolean updateReview( int index, String review )
     {
-        if( index > myStructure.size() && index < myStructure.size()  ) 
+        if( myStructure.size() != 0 ) 
         {
-            myStructure.get( index ).setReview( review );
-            System.out.println( ">> Se actualizó la reseña" );
+            if( index >= 0 && index < myStructure.size()  ) 
+            {
+                myStructure.get( index ).setReview( review );
+                System.out.println( ">> Se actualizó la reseña" );
+            }
+            else 
+            {
+                System.out.println( ">> No se actualizó la reseña" );
+                return false;
+            }
         }
-        else 
+        else
         {
-            System.out.println( ">> No se actualizó la reseña" );
+            System.out.println( ">> La lista está vacía" );
             return false;
         }
         return true;  
@@ -236,7 +273,7 @@ public class AdminImplRanking implements AdminRanking
         }
         else 
         {
-            System.out.println( ">> No se actualizó la reseña" );
+            System.out.println( ">> No se actualizó la reseña o no existe" );
             return false;
         }
         return true;  
@@ -293,12 +330,14 @@ public class AdminImplRanking implements AdminRanking
         System.out.println( ">> Resultado de busqueda de calificación: " + rank );
         System.out.println( "============================================" );
         for( RankingDTO r : myStructure )
+        {
             if( r.getRank() == rank )
             {
                 System.out.println( "índice: " + myStructure.indexOf( r ) );
                 System.out.println( r.toString() );
                 System.out.println( "--------------------------------------------" );    
             }
+        }
         System.out.println( "============================================\n" );
     }
 
@@ -311,13 +350,15 @@ public class AdminImplRanking implements AdminRanking
         System.out.println( "============================================" );
         System.out.println( "Consulta todo" );
         System.out.println( "============================================" );
-        for( RankingDTO r : myStructure )
+        for( RankingDTO r : myStructure ) 
+        {
             if(r != null) 
             {
                 System.out.println( "índice: " + myStructure.indexOf( r ) );
                 System.out.println( r.toString() );
                 System.out.println( "--------------------------------------------" );
             }
+        }
         System.out.println( "============================================\n" );
     }
     

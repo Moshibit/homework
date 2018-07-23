@@ -62,12 +62,21 @@ public class TestAdminImplRanking
         
         /////////// Remove
         // rankingSystem.delete( ranking06 ); // test 
-        // rankingSystem.delete( 0 );
+        rankingSystem.delete( 0 );
+        
+        /////////// Update
+        rankingSystem.updateRank( 0, 1 );
+        rankingSystem.updateSynopsis( 0, "asdf" );
+        rankingSystem.updateReview( 0, "qwer" );
+        
+        rankingSystem.updateRank( ranking01, 2 );
+        rankingSystem.updateSynopsis( ranking01, "lkjh" );
+        rankingSystem.updateReview( ranking01, "poiu" );
         
         /////////// Find
-        rankingSystem.findRank( 15 ); // test
-        rankingSystem.findFilm( "Fast" ); // test 
-        rankingSystem.findUser( "Fast" ); // test
+        // rankingSystem.findRank( 15 ); // test
+        // rankingSystem.findFilm( "Fast" ); // test 
+        // rankingSystem.findUser( "Fast" ); // test
         rankingSystem.findRank( 5 );
         
         /////////// Consult
