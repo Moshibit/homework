@@ -41,13 +41,12 @@ public class ChildFilmDTO extends FilmDTO
      * @param animationType
      * @param recommendedAge
      */
-    public ChildFilmDTO( String name, String translatedName, RatingEnum rating,
-            GenreEnum[] genre, int duration, String country, int year,
-            String language, String dirtector, BigDecimal cost,
+    public ChildFilmDTO( String name, String translatedName,
+            char rating, String genre, int duration, String country,
+            int year, String language, String dirtector, BigDecimal cost,
             String animationType, int recommendedAge )
     {
-        super( name, translatedName, rating, genre, duration, country, year,
-                language, dirtector, cost );
+        super( name );
         _animationType = animationType;
         // validation
         if( recommendedAge < 0 )
@@ -56,8 +55,8 @@ public class ChildFilmDTO extends FilmDTO
             _recommendedAge = recommendedAge;
     }
 
-
-
+   
+   
     public String getAnimationType()
     {
         return _animationType;

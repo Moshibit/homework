@@ -59,7 +59,7 @@ public class TestAdminImplRanking
         rankingSystem.add( ranking03 );
         rankingSystem.add( ranking04 );
         rankingSystem.add( ranking05 );
-        
+       
         /////////// Remove
         // rankingSystem.delete( ranking06 ); // test 
         rankingSystem.delete( 0 );

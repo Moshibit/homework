@@ -2,7 +2,7 @@ package filmRankingSystem.film.testFilm;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
-
+import filmRankingSystem.film.adminImplFilm.*;
 import filmRankingSystem.film.dataFilm.ChildFilmDTO;
 import filmRankingSystem.film.dataFilm.DocumentaryFilmDTO;
 import filmRankingSystem.film.dataFilm.FilmDTO;
@@ -24,9 +24,7 @@ public class TestFilm
         c.set( Calendar.YEAR, 2007 );
         
         // objects that store films data are created
-        FilmDTO movie1 = new FilmDTO( "Pulp Fiction", "Tiempos violentos", 'B',
-                "Thriller", 154, "Estados Unidos", 1994, "Inglés", 
-                "Quentin Tarantino", bd);
+        FilmDTO movie1 = new FilmDTO( "Pulp Fiction");
         ChildFilmDTO movie2 = new ChildFilmDTO("The Incredibles", 
             "Los increíbles", 'A',"Superheroes", 115, "Estados Unidos", 
             2004, "Inglés", "Walt Disney", bd, "3d", 7);
@@ -58,6 +56,6 @@ public class TestFilm
         	testArray[i].deploy();
         	// System.out.println( testArray[i].toString() );
         }
-
+        
     }
 }
