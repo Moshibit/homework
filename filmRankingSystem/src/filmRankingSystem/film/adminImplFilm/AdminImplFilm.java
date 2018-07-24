@@ -33,7 +33,7 @@ public class AdminImplSetFilm implements AdminFilm
                 if( r.getFilm().getName() != null && 
                         r.getFilm().getName().equals( Film ) )
                 {
-                    System.out.println( "índice: " + myStructure.indexOf( r ) );
+                    System.out.println( "Ã­ndice: " + myStructure.indexOf( r ) );
                     System.out.println( r.toString() );
                     System.out.println( "--------------------------------------------" );    
                 }
@@ -47,10 +47,10 @@ public class AdminImplSetFilm implements AdminFilm
 	public boolean addfilm( RankingDTO FilmDTO_String )
     {
         if( myStructure.add( FilmDTO_String ) )
-            System.out.println( ">> Se añadió nuevo Film " );
+            System.out.println( ">> Se aÃ±adiÃ³ nuevo Film " );
         else
         {
-            System.out.println( ">> No se pudo añadir" );
+            System.out.println( ">> No se pudo aÃ±adir" );
             return false;
         }
         return true;
@@ -64,7 +64,7 @@ public class AdminImplSetFilm implements AdminFilm
             if( delate_Film >= 0 && delate_Film < myStructure.size() )
             {
                 if( myStructure.remove( delate_Film ) != null )
-                    System.out.println( ">> Se elimnió el Film" );
+                    System.out.println( ">> Se elimniÃ³ el Film" );
                 else
                 {
                     System.out.println( ">> Error al eliminar Film" );
@@ -73,13 +73,13 @@ public class AdminImplSetFilm implements AdminFilm
             }
             else 
             {
-                System.out.println( ">> índice incorrecto" );
+                System.out.println( ">> Ã­ndice incorrecto" );
                 return false;
             }
         }
         else 
         {
-            System.out.println( ">> La lista está vacía" );
+            System.out.println( ">> La lista estÃ¡ vacÃ­a" );
             return false;
         }
         return true;
