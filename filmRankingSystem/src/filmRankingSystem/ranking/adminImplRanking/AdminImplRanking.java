@@ -3,8 +3,11 @@
  */
 package filmRankingSystem.ranking.adminImplRanking;
 
+import java.util.Calendar;
+import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 import filmRankingSystem.film.dataFilm.FilmDTO;
 import filmRankingSystem.ranking.adminRanking.AdminRanking;
@@ -360,6 +363,243 @@ public class AdminImplRanking implements AdminRanking
             }
         }
         System.out.println( "============================================\n" );
+    }
+    
+    @Override
+    public RankingDTO setRanking( RankingDTO o )
+    {
+        int scanInt;
+        
+        int year;
+        int month;
+        int day;
+        int monthType;
+        boolean isleapYear;
+        
+        boolean isView;
+        Calendar viewDate = Calendar.getInstance();
+        int rank;
+        String synopsis;
+        String review;
+      
+        Scanner sc = new Scanner(System.in);
+        
+        ////////////////////// Scan Data
+        /////// Scan view
+        do
+        {
+            System.out.println( "¿Has visto la pelicula?\n"
+                    + "Escribe '1' para sí o '0' para no" );
+            
+            try
+            {
+                scanInt = sc.nextInt();
+            }
+            catch ( InputMismatchException e )
+            {
+                scanInt = 0;
+                System.out.println( "Excepcion: Error de entrada.\n"
+                        + "Se corrigió marcando como película no vista" );
+                e.printStackTrace();
+            }
+            
+        }while ( scanInt < 0 || scanInt > 1 );
+        sc.nextLine();
+        if( scanInt == 0 ) 
+        {
+            isView = false;
+        }
+        else
+        {
+            isView = true;
+        }
+        /////// Scan date
+        System.out.println( "Introduce la fecha en que viste la pelicula" );
+        /// year
+        do
+        {
+            System.out.println( "Año: " );
+            
+            try
+            {
+                year = sc.nextInt();
+            }
+            catch ( InputMismatchException e )
+            {
+                year = 0;
+                System.out.println( "Excepcion: Error de entrada.\n"
+                        + "Se ajustó el año en 0" );
+                e.printStackTrace();
+            }
+
+        }while(year < 0 || year > 9999);
+        sc.nextLine();
+        
+        isleapYear = false;
+        if( year % 4 == 0 ) 
+        {
+            if( year % 400 == 0 || year % 100 != 0 )
+            {
+                isleapYear = true;
+            }
+        }
+        
+        /// month
+        do
+        {
+            System.out.println( "Mes: " );
+            
+            try
+            {
+                month = sc.nextInt();
+            }
+            catch ( InputMismatchException e )
+            {
+                month = 1;
+                System.out.println( "Excepcion: Error de entrada.\n"
+                        + "Se ajustó el mes en enero" );
+                e.printStackTrace();
+            }
+            
+        }while(month < 1 || month > 12 );
+        sc.nextLine();
+        
+        month--;
+        monthType = 0;
+        if( month == 0 || month == 2 || month == 4 || month == 6 || 
+                month == 7 || month == 9 || month == 11 )
+        {
+            monthType = 1;
+        }
+        else if( month == 3 || month == 5 || month == 8 || month == 10 )
+        {
+            monthType = 2;
+        }
+        else if( isleapYear ) 
+        {
+            monthType = 3;
+        }
+        /// day
+        switch( monthType )
+        {
+            case 1:
+                do
+                {
+                    System.out.println( "Día: " );
+                    
+                    try
+                    {
+                        day = sc.nextInt();
+                    }
+                    catch ( InputMismatchException e )
+                    {
+                        day = 1;
+                        System.out.println( "Excepcion: Error de entrada.\n"
+                                + "Se ajustó el día en 1" );
+                        e.printStackTrace();
+                    }
+                    
+                }while(day < 1 || day > 31 );
+                break;
+            case 2:
+                do
+                {
+                    System.out.println( "Día: " );
+                    
+                    try
+                    {
+                        day = sc.nextInt();
+                    }
+                    catch ( InputMismatchException e )
+                    {
+                        day = 1;
+                        System.out.println( "Excepcion: Error de entrada.\n"
+                                + "Se ajustó el día en 1" );
+                        e.printStackTrace();
+                    }
+                    
+                }while(day < 1 || day > 30 );
+                break;
+            case 3:
+                do
+                {
+                    System.out.println( "Día:" );
+                    
+                    try
+                    {
+                        day = sc.nextInt();
+                    }
+                    catch ( InputMismatchException e )
+                    {
+                        day = 1;
+                        System.out.println( "Excepcion: Error de entrada.\n"
+                                + "Se ajustó el día en 1" );
+                        e.printStackTrace();
+                    }
+                    
+                }while(day < 1 || day > 29 );
+                break;
+            default:
+                do
+                {
+                    System.out.println( "Día:" );
+                    
+                    try
+                    {
+                        day = sc.nextInt();
+                    }
+                    catch ( InputMismatchException e )
+                    {
+                        day = 1;
+                        System.out.println( "Excepcion: Error de entrada.\n"
+                                + "Se ajustó el día en 1" );
+                        e.printStackTrace();
+                    }
+                    
+                }while(day < 1 || day > 28 );
+        }
+        sc.nextLine();
+        
+        viewDate.set(Calendar.YEAR, year);
+        viewDate.set(Calendar.MONTH, month);
+        viewDate.set(Calendar.DATE, day);
+        ////////// rank
+        
+        rank = 0;
+        do 
+        {
+            System.out.println( "Da tu califiación del 1 al 5" );     
+            
+            try 
+            {
+                rank = sc.nextInt();
+                
+            }
+            catch ( InputMismatchException e )
+            {
+                rank = 1;
+                System.out.println( "Excepcion: Error de entrada.\n"
+                        + "Se corrigió con calificación 1" );
+                e.printStackTrace();
+            }
+        }while( rank < 0 || rank > 6 );
+        sc.nextLine();   
+        
+        System.out.println( "Escribe tu sinopsis" );
+        synopsis = sc.nextLine();
+        
+        System.out.println( "Escribe tu reseña" );
+        review = sc.nextLine();
+        
+        sc.close();
+        
+        o.setRank( rank );
+        o.setReview( review );
+        o.setSynopsis( synopsis );
+        o.setView( isView );
+        o.setWatchedDate( viewDate );
+
+        return o;
     }
     
 }

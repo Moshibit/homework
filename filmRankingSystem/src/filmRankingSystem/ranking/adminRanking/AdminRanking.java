@@ -104,4 +104,9 @@ public interface AdminRanking
      */
     public void consult();
     
+    /**
+     * This method
+     */
+    public RankingDTO setRanking( RankingDTO o );
+    
 }
