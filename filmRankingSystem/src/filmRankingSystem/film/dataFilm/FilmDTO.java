@@ -17,7 +17,7 @@ public class FilmDTO
     private String      _name;
     private String      _translatedName;
     private RatingEnum  _rating;// A, B, C, D simplified Mexico's rating system
-    private GenreEnum[] _genre;// list maximum 3
+    private GenreEnum _genre;// list maximum 3
     private int         _duration;// minutes
     private String      _country; 
     private int         _year;
@@ -61,7 +61,7 @@ public class FilmDTO
      * @param cost
      */
     public FilmDTO( String name, String translatedName, RatingEnum rating,
-            GenreEnum[] genre, int duration, String country, int year, String language,
+            GenreEnum genre, int duration, String country, int year, String language,
             String dirtector, BigDecimal cost )
     {
         super();
@@ -95,7 +95,7 @@ public class FilmDTO
      * @param rating
      * @param genre
      */
-    public FilmDTO( String name, RatingEnum rating, GenreEnum[] genre )
+    public FilmDTO( String name, RatingEnum rating, GenreEnum genre )
     {
         super();
         _name = name;
@@ -135,12 +135,12 @@ public class FilmDTO
         _rating = rating;
     }
     
-    public GenreEnum[] getGenre()
+    public GenreEnum getGenre()
     {
         return _genre;
     }
     
-    public void setGenre( GenreEnum[] genre )
+    public void setGenre( GenreEnum genre )
     {
         _genre = genre;
     }

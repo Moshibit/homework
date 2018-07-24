@@ -8,5 +8,5 @@ package filmRankingSystem.film.dataFilm;
  */
 public enum RatingEnum 
 {
-
+	AA,A, B, B15, C, D; 
 }

@@ -1,4 +1,4 @@
-/**
+/** 
  * create: 19/07/2018
  */
 package filmRankingSystem.user.dataUser;
@@ -8,14 +8,16 @@ package filmRankingSystem.user.dataUser;
  */
 public class UserDTO
 {
-     // attributes
+	// attributes
         // instance attributes
     private String _name;
     private String _surname1;
     private String _surname2;
     private String _userName;
+    private String _email;
+    private String _password;
 
-    // methods
+	// methods
         // constructors
     /**
      * 
@@ -25,6 +27,19 @@ public class UserDTO
     /**
      * @param userName
      */
+    
+    public UserDTO(String _name, String _surname1, String _surname2,
+			String _userName, String _email, String _password) 
+    {
+		super();
+		this._name = _name;
+		this._surname1 = _surname1;
+		this._surname2 = _surname2;
+		this._userName = _userName;
+		this._email = _email;
+		this._password = _password;
+	}
+    
     public UserDTO( String userName )
     {
         super();
@@ -36,16 +51,9 @@ public class UserDTO
      * @param surname1
      * @param surname2
      */
-    public UserDTO( String name, String surname1, String surname2, 
-            String userName )
-    {
-        super();
-        _name = name;
-        _surname1 = surname1;
-        _surname2 = surname2;
-        _userName = userName;
-    }
-
+    
+    
+    
         // accessors
     public String getName()
     {
@@ -86,6 +94,21 @@ public class UserDTO
     {
         _userName = userName;
     }
+    public String get_email() {
+		return _email;
+	}
+
+	public void set_email(String _email) {
+		this._email = _email;
+	}
+
+	public String get_password() {
+		return _password;
+	}
+
+	public void set_password(String _password) {
+		this._password = _password;
+	}
 
     // implemented
     public void deploy()
@@ -94,10 +117,14 @@ public class UserDTO
     }
     
         // override
-    @Override
-    public String toString()
+    public void despliegaDatos()
     {
-        String str = "";
-        return str;
+    	System.out.println("*************************************");
+    	System.out.println("Datos de Usuario");
+    	System.out.println("Name: "+_name + _surname1 + _surname2);
+    	System.out.println("Nick Name: "+_userName);
+    	System.out.println("Email: "+_email);
+    	System.out.println("Password: "+_password);
+    	System.out.println("**************************************");
     }
 }

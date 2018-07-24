@@ -8,5 +8,6 @@ package filmRankingSystem.film.dataFilm;
  */
 public enum GenreEnum 
 {
-
-}
+	TERROR, COMEDIA, ROMANCE, THRILLER, MUSICAL, ANIMACION, SIENCIA_FICCION, AVENTURAS, FANTASIA;
+	
+} 
